@@ -15,7 +15,7 @@ Simply Coffee is a mobile app designed to streamline the coffee ordering process
 
 To enable App Linking functionality, follow these steps:
 
-1. **Generate a Statement File:** Use Google's App Links Statement List Generator and Tester tool ([https://developers.google.com/google-ads/scripts/docs/solutions/link-checker](https://developers.google.com/google-ads/scripts/docs/solutions/link-checker)) to create and download a statement file. This file verifies ownership of your app and website domain.
+1. **Generate a Statement File:** Use Google's App Links Statement List Generator and Tester tool ([https://developers.google.com/digital-asset-links/tools/generator](https://developers.google.com/digital-asset-links/tools/generator)) to create and download a statement file. This file verifies ownership of your app and website domain.
 2. **Upload the Statement File:** Follow your cafe's website hosting provider's instructions on uploading the generated statement file to your website's root directory.
 3. **Configure AppLink URL:** The recommended AppLink URL format is:
    ```
