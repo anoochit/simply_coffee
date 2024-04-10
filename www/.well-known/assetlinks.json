@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "net.redlinesoft.simplycoffee",
+      "sha256_cert_fingerprints": [
+        "83:61:B6:66:01:D4:76:FE:6C:72:0A:91:ED:F9:6D:71:95:CA:AC:D8:0B:31:C9:B7:3B:08:C7:A6:EA:2E:B4:41"
+      ]
+    }
+  }
+]
