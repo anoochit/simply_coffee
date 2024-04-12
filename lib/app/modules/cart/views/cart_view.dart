@@ -16,7 +16,6 @@ class CartView extends GetView<AppController> {
       ),
       //  show order items, user can adjust a quantity of each items
       body: GetBuilder<AppController>(
-        id: 'cart',
         builder: (controller) => ListView.builder(
           itemCount: controller.orderItems.length,
           itemBuilder: (BuildContext context, int index) {

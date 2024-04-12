@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 
 import '../../../controllers/app_controller.dart';
 import '../../../data/mock_data.dart';
 import '../../../routes/app_pages.dart';
+import '../../../theme/theme.dart';
 
 class OrderView extends GetView<AppController> {
   const OrderView({super.key});
@@ -21,15 +23,31 @@ class OrderView extends GetView<AppController> {
         gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
         itemBuilder: (context, index) {
+          final product = listProduct[index];
           return Card(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
             child: InkWell(
               onTap: () {
                 // add product to order list
-                controller.addToOrder(product: listProduct[index]);
+                controller.addToOrder(product: product);
               },
-              child: GridTile(
-                footer: Text('${listProduct[index].price}'),
-                child: Text(listProduct[index].title),
+              child: Stack(
+                children: [
+                  Image.asset(
+                    product.image,
+                    fit: BoxFit.contain,
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        product.title,
+                        style: productTitleStyle,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           );
