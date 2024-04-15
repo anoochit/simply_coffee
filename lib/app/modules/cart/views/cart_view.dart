@@ -19,11 +19,15 @@ class CartView extends GetView<AppController> {
         builder: (controller) => ListView.builder(
           itemCount: controller.orderItems.length,
           itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Row(
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0),
+              child: Row(
                 children: [
                   // product item
-                  Text(controller.orderItems[index].title),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(controller.orderItems[index].title),
+                  ),
                   const Spacer(),
                   // decrease button
                   IconButton.filledTonal(
@@ -60,8 +64,10 @@ class CartView extends GetView<AppController> {
         padding: const EdgeInsets.all(8.0),
         child: FilledButton(
           onPressed: () {
-            // to checkout screen
-            Get.toNamed(Routes.CHECKOUT);
+            if (controller.orderTotalItem > 0) {
+              // to checkout screen
+              Get.toNamed(Routes.CHECKOUT);
+            }
           },
           child: Obx(() => Text('Checkout ${controller.orderTotalPrice} THB')),
         ),

@@ -56,18 +56,23 @@ class OrderView extends GetView<AppController> {
       bottomNavigationBar: SizedBox(
         height: 64,
         child: Obx(
-          () => Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text('Table ${controller.tableNo.value}'),
-              FilledButton(
-                onPressed: () {
-                  // order list
-                  Get.toNamed(Routes.CART);
-                },
-                child: Text('${controller.orderTotalItem} items'),
-              ),
-            ],
+          () => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Table ${controller.tableNo.value}'),
+                FilledButton(
+                  onPressed: () {
+                    if (controller.orderTotalItem > 0) {
+                      // order list
+                      Get.toNamed(Routes.CART);
+                    }
+                  },
+                  child: Text('${controller.orderTotalItem} items'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
